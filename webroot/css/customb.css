@@ -1,0 +1,27 @@
+
+ .error-message{
+  font-size: 80% !important;
+  font-weight: 400 !important;
+  color: #f96868 !important;
+}
+
+.nav-profile-img2 {
+   /* position: relative;*/
+    width: 64px;
+    height: 64px;
+}
+
+.nav-profile-img2 img{
+   /* position: relative;*/
+    width: 64px;
+    height: 64px;
+    border-radius: 100px;
+}
+
+.tandc{
+  font-size: 12px !important;
+}
+
+.blockquote-primary2 {
+    border-color: #b66dff;
+}
