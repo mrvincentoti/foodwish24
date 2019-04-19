@@ -83,4 +83,4 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
  */
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
-define("BASE_URL", "http://www.foodwish24.com");
+define("BASE_URL", "http://www.foodwish24.com/");

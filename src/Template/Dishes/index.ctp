@@ -50,7 +50,7 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/1.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Choose course</a></h2>
+                                    <h2><a href="">Choose course</a></h2>
                                 </div>
                                 <div class="service__details">
                                     <p>On our <?= $this->Html->link(__(' Training Page '), ['controller'=>'Trainings','action' => 'index']) ?>kindly select your desired course, click and
@@ -67,7 +67,7 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/2.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Supply your personal data</a></h2>
+                                    <h2><a href="">Supply your personal data</a></h2>
                                 </div>
                                 <div class="service__details">
                                     <p>After reading through the course detail, click on the Register button to fill a form, submit and make payment.</p>
@@ -82,7 +82,7 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/3.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Get Trained</a></h2>
+                                    <h2><a href="">Get Trained</a></h2>
                                 </div>
                                 <div class="service__details">
                                     <p>Once your payment is confirmed, we will contact you and schedule your training commencement</p>

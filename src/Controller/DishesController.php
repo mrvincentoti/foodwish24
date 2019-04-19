@@ -228,7 +228,7 @@ class DishesController extends AppController
     public function beforeFilter(Event $event) {
         $this->Auth->allow(['index','menulist','menudetails']);
         if (!$this->Auth->user()) {
-            $this->Auth->config('authError', false);
+            $this->Auth->setConfig('authError', false);
         }
     }
 }

@@ -143,7 +143,7 @@ class UsersController extends AppController
     public function beforeFilter(Event $event) {
         $this->Auth->allow(['login','add']);
         if (!$this->Auth->user()) {
-            $this->Auth->config('authError', false);
+            $this->Auth->setConfig('authError', false);
         }
     }
 }
