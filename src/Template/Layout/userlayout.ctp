@@ -60,6 +60,7 @@
                                                     <li><a href="blog-details.html">Blog Details</a></li>
                                                 </ul-->
                                             </li>
+                                             <!--li><a href="<?=BASE_URL?>blog/">Blog</a></li-->
                                             <li class="drop"><a href="<?=BASE_URL?>menu/">Menu</a>
                                                 <!--ul class="dropdown__menu">
                                                     <li><a href="menu-grid.html">Menu Grid</a></li>
@@ -165,16 +166,17 @@
                             <div class="footer gallery">
                                 <h2 class="ftr__title">Our Gallery</h2>
                                 <div class="footer__inner">
-                                    <ul class="sm__gallery__list">
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/1.jpg" alt="gallery images"></a></li>
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/2.jpg" alt="gallery images"></a></li>
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/3.jpg" alt="gallery images"></a></li>
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/4.jpg" alt="gallery images"></a></li>
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/5.jpg" alt="gallery images"></a></li>
-                                        <li><a href="#"><img src="<?=BASE_URL?>images/gallery/sm-img/6.jpg" alt="gallery images"></a></li>
-                                    </ul>
+                                   <?php
+                                     //cell that renders the latest post
+                                     $footer_latestpost_cell = $this->cell('food::footerpost', ['cache' => true]);
+                                    //the cell that renders footer galleries 
+
+                                    $footer_gallary_cell = $this->cell('food::footergallary', ['cache' => true]);
+                                    echo $footer_gallary_cell;
+                                    ?>
+                                   
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <!-- End Single Footer -->
                         <!-- Start Single Footer -->
@@ -200,39 +202,8 @@
                                 <h2 class="ftr__title">Latest Post</h2>
                                 <div class="footer__inner">
                                     <div class="lst__post__list">
-                                        <div class="single__sm__post">
-                                            <div class="sin__post__thumb">
-                                                <a href="blog-details,html">
-                                                    <img src="<?=BASE_URL?>images/blog/sm-img/1.jpg" alt="blog images">
-                                                </a>
-                                            </div>
-                                            <div class="sin__post__details">
-                                                <h6><a href="blog-details.html">Chicken Shawarma </a></h6>
-                                                <p>Lordo loram consecte turadip isicing</p>
-                                            </div>
-                                        </div>
-                                        <div class="single__sm__post">
-                                            <div class="sin__post__thumb">
-                                                <a href="blog-details,html">
-                                                    <img src="<?=BASE_URL?>images/blog/sm-img/2.jpg" alt="blog images">
-                                                </a>
-                                            </div>
-                                            <div class="sin__post__details">
-                                                <h6><a href="blog-details.html">Fruits Desert</a></h6>
-                                                <p>Lordo loramcon secte turadipi sicing</p>
-                                            </div>
-                                        </div>
-                                        <div class="single__sm__post">
-                                            <div class="sin__post__thumb">
-                                                <a href="blog-details,html">
-                                                    <img src="<?=BASE_URL?>images/blog/sm-img/3.jpg" alt="blog images">
-                                                </a>
-                                            </div>
-                                            <div class="sin__post__details">
-                                                <h6><a href="blog-details.html">Vanilla Pastry</a></h6>
-                                                <p>Lordo loramcon secte turadip isicing</p>
-                                            </div>
-                                        </div>
+                                       <?=$footer_latestpost_cell?>
+                                        
                                     </div>
                                 </div>
                             </div>

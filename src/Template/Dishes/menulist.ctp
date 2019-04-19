@@ -1,3 +1,6 @@
+<?php 
+    //debug(json_encode($dishes, JSON_PRETTY_PRINT)); 
+?>
 <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--18">
             <div class="ht__bradcaump__wrap d-flex align-items-center">
@@ -38,836 +41,233 @@
                         <div class="fd__tab__content tab-content" id="nav-tabContent">
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade show active" id="nav-all" role="tabpanel">
+                                <?php foreach($dishes as $dish):?>
                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Beef Burger</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/2.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/3.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/4.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/5.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php endforeach;?>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade" id="nav-breakfast" role="tabpanel">
-                                <!-- Start Single Food -->
+                                <?php 
+                                    foreach($dishes as $dish):
+                                    if($dish->category_id == 1){
+                                ?>
+                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/4.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/5.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php } endforeach;?>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade" id="nav-lunch" role="tabpanel">
-                                <!-- Start Single Food -->
+                                 <?php 
+                                    foreach($dishes as $dish):
+                                    if($dish->category_id == 2){
+                                ?>
+                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/2.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/3.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php } endforeach;?>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade" id="nav-dinner" role="tabpanel">
-                                <!-- Start Single Food -->
+                                 <?php 
+                                    foreach($dishes as $dish):
+                                    if($dish->category_id == 3){
+                                ?>
+                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/4.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Fruits Desert</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/5.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Vanila Pastry</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Chocolate Pastry</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$50</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$45</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php } endforeach;?>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade" id="nav-coffee" role="tabpanel">
-                                <!-- Start Single Food -->
+                                 <?php 
+                                    foreach($dishes as $dish):
+                                    if($dish->category_id == 5){
+                                ?>
+                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$20</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$35</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$30</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php } endforeach;?>
                             </div>
                             <!-- End Single Content -->
                             <!-- Start Single Content -->
                             <div class="food__list__tab__content tab-pane fade" id="nav-snacks" role="tabpanel">
-                                <!-- Start Single Food -->
+                                 <?php 
+                                    foreach($dishes as $dish):
+                                    if($dish->category_id == 4){
+                                ?>
+                                 <!-- Start Single Food -->
                                 <div class="single__food__list d-flex wow fadeInUp">
                                     <div class="food__list__thumb">
                                         <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
+                                            <img style="width: 469px; height: 253px;" src="<?=BASE_URL?>images/product/<?=$dish->image?>" alt="list food images">
                                         </a>
                                     </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
+                                    <div  class="food__list__inner d-flex align-items-center justify-content-between dishwidth">
                                         <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Special Chocolety Toast</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
+                                            <h2><a href="<?=BASE_URL?>menu-details/"><?=$dish->title?></a></h2>
+                                            <p><?=$dish->description?></p>
                                             <div class="list__btn">
                                                 <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">
                                             <div class="list__food__prize">
-                                                <span>$30</span>
+                                                <span> &#8358;<?=number_format($dish->price)?></span>
                                             </div>
-                                            <ul class="rating">
+                                            <!--ul class="rating">
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li><i class="zmdi zmdi-star"></i></li>
                                                 <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
+                                            </ul-->
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/2.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Spicy Chily Chicken</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$32</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/6.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Mixed Fruit Lassi</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$35</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
-                                <!-- Start Single Food -->
-                                <div class="single__food__list d-flex wow fadeInUp">
-                                    <div class="food__list__thumb">
-                                        <a href="<?=BASE_URL?>menu-details/">
-                                            <img src="<?=BASE_URL?>images/menu-list/1.jpg" alt="list food images">
-                                        </a>
-                                    </div>
-                                    <div class="food__list__inner d-flex align-items-center justify-content-between">
-                                        <div class="food__list__details">
-                                            <h2><a href="<?=BASE_URL?>menu-details/">Chocolate Pastry</a></h2>
-                                            <p>Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetu adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolmagna aliqua. enim ad minim veniam, quis nomagni dolores eos qnumquam.</p>
-                                            <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="<?=BASE_URL?>menu-details/">Order Now</a>
-                                            </div>
-                                        </div>
-                                        <div class="food__rating">
-                                            <div class="list__food__prize">
-                                                <span>$40</span>
-                                            </div>
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Food -->
+                                <?php } endforeach;?>
                             </div>
                             <!-- End Single Content -->
                         </div>
@@ -875,7 +275,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <ul class="food__pagination d-flex justify-content-center align-items-center mt--130">
+                        <!--ul class="food__pagination d-flex justify-content-center align-items-center mt--130">
                             <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
                             <li><a href="#">1</a></li>
                             <li class="active"><a href="#">2</a></li>
@@ -885,8 +285,19 @@
                             <li><a href="#">...</a></li>
                             <li><a href="#">7</a></li>
                             <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                        </ul-->
+                   
+                     <div class="paginator">
+                        <ul class="pagination justify-content-center align-items-center mt--130">
+                            <?= $this->Paginator->first('<< ' . __('First')) ?>
+                            <?= $this->Paginator->prev('< ' . __('Previous')) ?>
+                            <?= $this->Paginator->numbers() ?>
+                            <?= $this->Paginator->next(__('Next') . ' >') ?>
+                            <?= $this->Paginator->last(__('Last') . ' >>') ?>
                         </ul>
+                        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
                     </div>
+                   </div>
                 </div>
             </div>
         </section>

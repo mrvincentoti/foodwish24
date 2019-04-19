@@ -22,10 +22,8 @@ class GalleriesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Categories']
-        ];
-        $galleries = $this->paginate($this->Galleries);
+       
+        $galleries = $this->Galleries->find()->contain(['Categories'])->limit(8); 
 
         $this->set(compact('galleries'));
         $this->viewBuilder()->setLayout('userlayout');

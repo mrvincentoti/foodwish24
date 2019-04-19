@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Abouts Controller
@@ -21,9 +22,15 @@ class AboutsController extends AppController
      */
     public function index()
     {
-        $abouts = $this->paginate($this->Abouts);
+        //$abouts = $this->paginate($this->Abouts);
+        $abouts = $this->Abouts->get(1);
+        $Aboustusimages = TableRegistry::get('Aboutimages');
+        $aboutimages = $Aboustusimages->find('all')
+        ->where(['Aboutimages.status' => 1])
+        ->limit(3);
+        //debug(json_encode($abouts, JSON_PRETTY_PRINT)); exit;
 
-        $this->set(compact('abouts'));
+        $this->set(compact('abouts','aboutimages'));
         $this->viewBuilder()->setLayout('userlayout');
     }
 

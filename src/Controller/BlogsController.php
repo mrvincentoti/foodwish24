@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Blogs Controller
@@ -26,6 +27,7 @@ class BlogsController extends AppController
         $blogs = $this->paginate($this->Blogs);
 
         $this->set(compact('blogs'));
+        $this->viewBuilder()->setLayout('userlayout');
     }
 
     public function listblogs(){
@@ -118,5 +120,12 @@ class BlogsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function beforeFilter(Event $event) {
+        $this->Auth->allow(['index']);
+        if (!$this->Auth->user()) {
+            $this->Auth->config('authError', false);
+        }
     }
 }

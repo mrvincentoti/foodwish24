@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Routing\Router;
+use Cake\ORM\TableRegistry;
 
 /**
  * Dishes Controller
@@ -24,9 +26,13 @@ class DishesController extends AppController
         $this->paginate = [
             'contain' => ['Categories']
         ];
+        //base url
+        $baseUrl = Router::url('/', true);
+        $banners_table = TableRegistry::get('Banners');
+        $banner = $banners_table->get(1);
         $dishes = $this->paginate($this->Dishes);
 
-        $this->set(compact('dishes'));
+        $this->set(compact('dishes','banner','baseUrl'));
         $this->viewBuilder()->setLayout('userlayout');
     }
 
@@ -130,10 +136,16 @@ class DishesController extends AppController
     }
 
     public function menulist(){
+        $this->paginate = [
+            'contain' => ['Categories']
+        ];
+        $dishes = $this->paginate($this->Dishes);
+
+        $this->set(compact('dishes'));
         $this->viewBuilder()->setLayout('userlayout');
     }
 
-    public function menudetails(){
+    public function menudetails($id = null){
         $this->viewBuilder()->setLayout('userlayout');
     }
 

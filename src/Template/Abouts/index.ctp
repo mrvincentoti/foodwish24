@@ -1,4 +1,6 @@
-
+<?php 
+   // debug(json_encode($aboutimages, JSON_PRETTY_PRINT));
+?>
 <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--20">
             <div class="ht__bradcaump__wrap d-flex align-items-center">
@@ -34,15 +36,15 @@
                     <div class="col-lg-6 col-sm-12 col-md-12 align-self-center">
                         <div class="food__container">
                             <div class="food__inner">
-                                <h2>Watch Videos to Know more About Aahar</h2>
-                                <p>Lorem ipsum dolor sit amsa vadip isicing elit, seddei han  liqua. Ut enim ad miveniam, quis noion ullam.</p>
+                                <h2><?=$abouts->title?></h2>
+                                <p>Food delivery and Culinary Training</p>
                             </div>
                             <div class="food__details">
-                                <p>Lorem ipsum dolor sit amadipisicing elit, seddei smod dolore maaliqua. Ut enim ad miveniam, quis noion ullaml aboris nisi umt aliquip cequatL ipsum dolor sit ac adipis icling elit, se eiusmod tempor incididunt labmn hmagna aliqua. Ut enim ad minim veniam, quis nostr</p>
+                                <p><?=$abouts->description?></p>
                             </div>
                             <div class="food__tab">
                                 <div class="food__nav nav nav-tabs d-block" role="tablist">
-                                    <a class="active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">1. History of Aahar (2000-2017)</a>
+                                    <a class="active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">1. History of Foodwish24</a>
 
                                     <a id="nav-prepare-tab" data-toggle="tab" href="#prepare" role="tab" aria-controls="prepare" aria-selected="false">2. How  We prepare your meals</a>
 
@@ -56,29 +58,22 @@
                             <!-- Start Single Video -->
                             <div class="video__owl__activation tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="about__video__activation owl-carousel owl-theme">
+                                    <?php $count = 0; foreach($aboutimages as $aboutimage): $count++;?>
                                     <div class="about__video__inner">
                                         <div class="about__video__thumb">
-                                            <img src="<?=BASE_URL?>images/about/video/1.jpg" alt="video images">
-                                            <a class="video-play-button" href="https://www.youtube.com/watch?v=wJ9Ll8uD07I"><img src="<?=BASE_URL?>images/icon/play.png" alt="viveo play icon"></a>
+                                            <img src="<?=BASE_URL?>images/about/video/<?=$aboutimage->image?>" alt="video images">
+                                            <!--a class="video-play-button" href="https://www.youtube.com/watch?v=wJ9Ll8uD07I"><img src="<?=BASE_URL?>images/icon/play.png" alt="viveo play icon"></a-->
                                         </div>
                                         <div class="about__video__content">
-                                            <span>1</span>
+                                            <span><?=$count?></span>
                                         </div>
                                     </div>
-                                    <div class="about__video__inner">
-                                        <div class="about__video__thumb">
-                                            <img src="<?=BASE_URL?>images/about/video/2.jpg" alt="video images">
-                                            <a class="video-play-button" href="https://www.youtube.com/watch?v=wJ9Ll8uD07I"><img src="<?=BASE_URL?>images/icon/play.png" alt="viveo play icon"></a>
-                                        </div>
-                                        <div class="about__video__content">
-                                            <span>2</span>
-                                        </div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <!-- End Single Video -->
                             <!-- Start Single Video -->
-                            <div class="video__owl__activation tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="nav-prepare-tab">
+                            <!--div class="video__owl__activation tab-pane fade" id="prepare" role="tabpanel" aria-labelledby="nav-prepare-tab">
                                 <div class="about__video__activation owl-carousel owl-theme">
                                     <div class="about__video__inner">
                                         <div class="about__video__thumb">
@@ -99,10 +94,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <!-- End Single Video -->
                             <!-- Start Single Video -->
-                            <div class="video__owl__activation tab-pane fade" id="meals" role="tabpanel" aria-labelledby="nav-meals-tab">
+                            <!--div class="video__owl__activation tab-pane fade" id="meals" role="tabpanel" aria-labelledby="nav-meals-tab">
                                 <div class="about__video__activation owl-carousel owl-theme">
                                     <div class="about__video__inner">
                                         <div class="about__video__thumb">
@@ -132,7 +127,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <!-- End Single Video -->
                         </div>
                     </div>

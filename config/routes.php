@@ -84,6 +84,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('add-blog/', ['controller' => 'Blogs', 'action' => 'add']);
     $routes->connect('list-blog-category/', ['controller' => 'Groups', 'action' => 'index']);
     $routes->connect('add-blog-category/', ['controller' => 'Groups', 'action' => 'add']);
+    $routes->connect('blog/', ['controller' => 'Blogs', 'action' => 'index']);
 
     /**
      * Connect catchall routes for all controllers.

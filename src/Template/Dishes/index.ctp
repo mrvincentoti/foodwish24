@@ -8,8 +8,8 @@
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="slider__content">
                                     <div class="slider__inner">
-                                        <h2>“AAHAR”</h2>
-                                        <h1>food delivery & service</h1>
+                                        <h2><?=$banner->title  ?></h2>
+                                        <h1><?=$banner->videolink ?></h1>
                                         <!--div class="slider__input">
                                             <input type="text" placeholder="Type Place, City.Division">
                                             <input class="res__search" type="text" placeholder="Restaurant">
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <div class="section__title service__align--left">
-                                <p>The process of our service</p>
+                                <p>The process of our training</p>
                                 <h2 class="title__line">How it work</h2>
                             </div>
                         </div>
@@ -50,10 +50,12 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/1.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Choose restaurant</a></h2>
+                                    <h2><a href="service.html">Choose course</a></h2>
                                 </div>
                                 <div class="service__details">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                    <p>On our <?= $this->Html->link(__(' Training Page '), ['controller'=>'Trainings','action' => 'index']) ?>kindly select your desired course, click and
+                                        go through the details to really understand what the course is all about before proceeding 
+                                        with the registration.</p>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +67,10 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/2.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Select, you love to eat</a></h2>
+                                    <h2><a href="service.html">Supply your personal data</a></h2>
                                 </div>
                                 <div class="service__details">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                    <p>After reading through the course detail, click on the Register button to fill a form, submit and make payment.</p>
                                 </div>
                             </div>
                         </div>
@@ -80,10 +82,10 @@
                                     <div class="ser__icon">
                                         <img src="images/icon/color-icon/3.png" alt="icon image">
                                     </div>
-                                    <h2><a href="service.html">Pickup or delivery</a></h2>
+                                    <h2><a href="service.html">Get Trained</a></h2>
                                 </div>
                                 <div class="service__details">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                    <p>Once your payment is confirmed, we will contact you and schedule your training commencement</p>
                                 </div>
                             </div>
                         </div>
@@ -126,19 +128,23 @@
                                             <!-- Start Single Tab Content -->
                                             <div class="single__tab__content">
                                                 <!-- Start Single Food -->
+                                                <?php $count = 0; foreach ($dishes as $dish): $count++; if($count<=4){ ?>
                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Maxican Food Fev</a></h4>
-                                                            <span class="menu__prize">$15</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -152,21 +158,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php if($count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($count>4 & $count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">My Sweetest Desert </a></h4>
-                                                            <span class="menu__prize">$18</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -180,181 +191,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Burger Kings House</a></h4>
-                                                            <span class="menu__prize">$22</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Cheeze Burger</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Marmaid Chicken Fry</a></h4>
-                                                            <span class="menu__prize">$20</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Fry</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                <?php } endforeach;?>
+                                            
                                             </div>
-                                            <!-- End Single Tab Content -->
-                                            <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven Of Juice</a></h4>
-                                                            <span class="menu__prize">$14</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                            </div>
-                                            <!-- End Single Tab Content -->
+                                           
                                         </div>
                                     </div>
                                     <!-- End Single tab -->
@@ -364,19 +204,24 @@
                                             <!-- Start Single Tab Content -->
                                             <div class="single__tab__content">
                                                 <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <?php $cat1_count = 0; foreach ($dishes as $dish){ 
+                                                     if($dish->category_id ==1 & $cat1_count<=4){ $cat1_count++; ?>
+                                                               <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -390,21 +235,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <?php if($cat1_count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($dish->category_id ==1 & $cat1_count>4 & $cat1_count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven OF Juice </a></h4>
-                                                            <span class="menu__prize">$14</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -418,125 +268,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                 <?php } }?>
+                                            
                                             </div>
-                                            <!-- End Single Tab Content -->
-                                            <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$22</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$14</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                            </div>
-                                            <!-- End Single Tab Content -->
+                                            
                                         </div>
                                     </div>
                                     <!-- End Single tab -->
@@ -544,21 +279,26 @@
                                     <div class="single__tab__panel tab-pane fade" id="nav-lunch" role="tabpanel">
                                         <div class="tab__content__wrap">
                                             <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
+                                             <div class="single__tab__content">
                                                 <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <?php $cat2_count = 0; foreach ($dishes as $dish){ 
+                                                     if($dish->category_id ==2 & $cat1_count<=4){ $cat2_count++; ?>
+                                                               <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -572,21 +312,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <?php if($cat2_count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($dish->category_id ==2 & $cat2_count>4 & $cat2_count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven OF Juice </a></h4>
-                                                            <span class="menu__prize">$14</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -600,63 +345,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                 <?php } }?>
+                                            
                                             </div>
                                             <!-- End Single Tab Content -->
                                         </div>
@@ -666,21 +356,26 @@
                                     <div class="single__tab__panel tab-pane fade" id="nav-dinner" role="tabpanel">
                                         <div class="tab__content__wrap">
                                             <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
+                  <div class="single__tab__content">
                                                 <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <?php $cat3_count = 0; foreach ($dishes as $dish){ 
+                                                     if($dish->category_id ==3 & $cat3_count<=4){ $cat3_count++; ?>
+                                                               <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -694,21 +389,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <?php if($cat3_count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($dish->category_id ==3 & $cat3_count>4 & $cat3_count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven OF Juice </a></h4>
-                                                            <span class="menu__prize">$14</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -722,180 +422,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                 <?php } }?>
+                                            
                                             </div>
-                                            <!-- End Single Tab Content -->
-                                            <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$18</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$22</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Cheeze Burger</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$20</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Fry</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                            </div>
+                                            
                                             <!-- End Single Tab Content -->
                                         </div>
                                     </div>
@@ -904,21 +434,26 @@
                                     <div class="single__tab__panel tab-pane fade" id="nav-coffee" role="tabpanel">
                                         <div class="tab__content__wrap">
                                             <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
+                                           <div class="single__tab__content">
                                                 <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <?php $cat4_count = 0; foreach ($dishes as $dish){ 
+                                                     if($dish->category_id ==4 & $cat4_count<=4){ $cat4_count++; ?>
+                                                               <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -932,21 +467,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <?php if($cat4_count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($dish->category_id ==4 & $cat4_count>4 & $cat4_count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven OF Juice </a></h4>
-                                                            <span class="menu__prize">$14</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -960,63 +500,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                 <?php } }?>
+                                            
                                             </div>
                                             <!-- End Single Tab Content -->
                                         </div>
@@ -1024,23 +509,27 @@
                                     <!-- End Single tab -->
                                     <!-- Start Single tab -->
                                     <div class="single__tab__panel tab-pane fade" id="nav-snacks" role="tabpanel">
-                                        <div class="tab__content__wrap">
-                                            <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
+                                         <div class="tab__content__wrap">
+                                       <div class="single__tab__content">
                                                 <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <?php $cat5_count = 0; foreach ($dishes as $dish){ 
+                                                     if($dish->category_id ==5 & $cat5_count<=4){ $cat5_count++; ?>
+                                                               <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Kabab Ghor</a></h4>
-                                                            <span class="menu__prize">$22</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -1054,21 +543,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <?php if($cat5_count==4){echo '</div>
+                                            <div class="single__tab__content">';} }  elseif($dish->category_id ==5 & $cat5_count>4 & $cat5_count<=8){?>
+                                                
                                                 <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
+                                                 <div class="food__menu">
                                                     <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
+                  
+                                                        <a href="<?=BASE_URL.'dishes/menudetails/'.$dish->id?>">
+                                                          <img src="images/product/<?=$dish->image?>" alt="product images" height="105" width="109">
                                                         </a>
                                                     </div>
                                                     <div class="food__menu__details">
                                                         <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Haven OF Juice </a></h4>
-                                                            <span class="menu__prize">$14</span>
+                                                          <h4>  <?= $this->Html->link($dish->title, ['controller' => 'Dishes', 'action' => 'menudetails', $dish->id, $this->GenerateUrl($dish->title)], ['title' => 'view details'])
+?>
+                                                            </h4>
+                                                            <span class="menu__prize">N<?= number_format($dish->price)?></span>
                                                         </div>
                                                         <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
+                                                            <p>Food Type : <?=$dish->category->name?></p>
                                                             <div class="delivery__time__rating">
                                                                 <p>Delivery Time : 60 min, Delivery Cost : Free</p>
                                                                 <ul class="fd__rating">
@@ -1082,182 +576,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
+                                                 <?php } }?>
+                                            
                                             </div>
-                                            <!-- End Single Tab Content -->
-                                            <!-- Start Single Tab Content -->
-                                            <div class="single__tab__content">
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/1.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$22</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/2.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$14</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Mixed Fruit Juice</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/3.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Italian Chines</a></h4>
-                                                            <span class="menu__prize">$24</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type :Mixed Soup noodles</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                                <!-- Start Single Food -->
-                                                <div class="food__menu">
-                                                    <div class="food__menu__thumb">
-                                                        <a href="menu-details.html">
-                                                            <img src="images/product/sm-img/4.jpg" alt="product images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="food__menu__details">
-                                                        <div class="fd__menu__title__prize">
-                                                            <h4><a href="menu-details.html">Friends & Family Restaurant</a></h4>
-                                                            <span class="menu__prize">$15</span>
-                                                        </div>
-                                                        <div class="fd__menu__details">
-                                                            <p>Food Type : Chicken Stack</p>
-                                                            <div class="delivery__time__rating">
-                                                                <p>Delivery Time : 60 min, Delivery Cost : Free</p>
-                                                                <ul class="fd__rating">
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                                    <li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Food -->
-                                            </div>
-                                            <!-- End Single Tab Content -->
-                                        </div>
                                     </div>
                                     <!-- End Single tab -->
                                 </div>
@@ -1281,7 +602,7 @@
                                     <img src="images/testimonial/clint/1.png" alt="testimonial images">
                                 </div>
                                 <div class="testimonial__details">
-                                    <h4>Mily Cyrus</h4>
+                                    <h4>Chef Ema</h4>
                                     <h6>Food Expert</h6>
                                     <p>Lorem ipsum dolor sit amconsectetuadipisicing elit, kjjnin khk seeiusmod tempor incididunt ut labore et dolore maaliqua. Ut enim ad minim veniam,</p>
                                 </div>
@@ -1293,7 +614,7 @@
                                     <img src="images/testimonial/clint/1.png" alt="testimonial images">
                                 </div>
                                 <div class="testimonial__details">
-                                    <h4>Mily Cyrus</h4>
+                                    <h4>Chef Ema</h4>
                                     <h6>Food Expert</h6>
                                     <p>Lorem ipsum dolor sit amconsectetuadipisicing elit, kjjnin khk seeiusmod tempor incididunt ut labore et dolore maaliqua. Ut enim ad minim veniam,</p>
                                 </div>
